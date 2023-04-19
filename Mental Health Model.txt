@@ -1,0 +1,151 @@
+import numpy as np
+import pandas as pd
+import seaborn as sb
+import matplotlib.pyplot as plt
+
+data = pd.read_csv(r"C:\Users\ASUS\OneDrive\Desktop\mental health.csv")
+
+data.head()
+
+data.shape
+
+data.info
+
+# Import necessary libraries
+import pandas as pd
+
+# Load the dataset into a Pandas DataFrame
+df = pd.read_csv(r"C:\Users\ASUS\OneDrive\Desktop\mental health.csv")
+
+# Get unique values for a column name
+unique_values = df['Mental Health'].unique()
+
+# Print the unique values
+
+print(unique_values)
+
+# Import label encoder
+from sklearn import preprocessing
+  
+# label_encoder object knows how to understand word labels.
+label_encoder = preprocessing.LabelEncoder()
+  
+# Encode labels in column 'species'.
+df['Mental Health']= label_encoder.fit_transform(df['Mental Health'])
+  
+df['Mental Health']
+
+# Import necessary libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+# Load the dataset into a Pandas DataFrame
+df = pd.read_csv(r"C:\Users\ASUS\OneDrive\Desktop\mental health.csv")
+
+# Split the dataset into training and testing sets
+train_df, test_df = train_test_split(df, test_size=0.2)
+
+#missing data
+total = train_df.isnull().sum().sort_values(ascending=False)
+percent = (train_df.isnull().sum()/train_df.isnull().count()).sort_values(ascending=False)
+missing_data = pd.concat([total, percent], axis=1, keys=['Total', 'Percent'])
+missing_data.head(20)
+print(missing_data)
+
+defaultInt = 0
+defaultString = 'NaN'
+defaultFloat = 0.0
+
+# Create lists by data type
+intFeatures = ['Age']
+floatFeatures = []
+
+# Read the CSV file into a DataFrame
+train_df = pd.read_csv(r"C:\Users\ASUS\OneDrive\Desktop\mental health.csv")
+
+# Clean the NaN's
+for feature in train_df.columns:
+    if feature in intFeatures:
+        train_df[feature] = train_df[feature].fillna(defaultInt)
+    elif feature in floatFeatures:
+        train_df[feature] = train_df[feature].fillna(defaultFloat)
+    elif feature == 'object':
+        train_df[feature] = train_df[feature].fillna(defaultString)
+    else:
+        print('Error: Feature %s not identified.' % feature)
+
+train_df.head()
+
+#missing data
+total = train_df.isnull().sum().sort_values(ascending=False)
+percent = (train_df.isnull().sum()/train_df.isnull().count()).sort_values(ascending=False)
+missing_data = pd.concat([total, percent], axis=1, keys=['Total', 'Percent'])
+missing_data.head(20)
+print(missing_data)
+
+
+def randomForest():
+    # Calculating the best parameters
+    forest1 = RandomForestClassifier(n_estimators = 20)
+    featuresSize = feature_cols1.__len__()
+    param_dist = {"max_depth": [3, None],
+              "max_features": randint(1, featuresSize),
+              "min_samples_split": randint(2, 9),
+              "min_samples_leaf": randint(1, 9),
+              "criterion": ["gini", "entropy"]}
+    tuningRandomizedSearchCV(forest1, param_dist)
+    forest1 = RandomForestClassifier(max_depth = None, min_samples_leaf=8, min_samples_split=2, n_estimators = 20, random_state = 1)
+    my_forest = forest1.fit(X_train1, y_train1)
+    y_pred_class = my_forest.predict(X_test1)
+    accuracy_score = evalClassModel(my_forest, y_test1, y_pred_class, True)
+    #Data for final graph
+    methodDict['Random Forest'] = accuracy_score * 100
+    randomForest()
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load your data and split it into training and testing datasets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize the Random Forest Classifier object
+rfc = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42)
+
+# Train the model using the training dataset
+rfc.fit(X_train, y_train)
+
+# Evaluate the model using the testing dataset
+y_pred = rfc.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+from sklearn.datasets import load_iris
+from sklearn.naive_bayes import GaussianNB
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load the iris dataset
+iris = load_iris()
+
+# Split the dataset into training and testing datasets
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.3, random_state=42)
+
+# Initialize the Gaussian Naive Bayes classifier object
+gnb = GaussianNB()
+
+# Train the model using the training dataset
+gnb.fit(X_train, y_train)
+
+# Predict the class labels for the testing dataset
+y_pred = gnb.predict(X_test)
+
+# Calculate the accuracy of the model
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+
+
+
+
+
