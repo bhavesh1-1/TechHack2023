@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <TextView
+        android:id="@+id/pagehead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:textSize="40dp"
+        android:textColor="@color/black"
+        android:text="Login"
+        />
+    <EditText
+        android:id="@+id/loginuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pagehead"
+        android:layout_marginTop="90dp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/baseline_person_4_24"
+        android:hint="Username"
+        android:padding="20dp"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/loginpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginuser"
+        android:layout_alignLeft="@+id/loginuser"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:drawableLeft="@drawable/outline_lock_24"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:singleLine="true"
+        />
+    <Button
+        android:id="@+id/lgnbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginpass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="Log In"
+        android:backgroundTint="@color/black"
+        />
+
+</RelativeLayout>
